@@ -12,7 +12,10 @@
 hs_err_pid*
 
 
-/bin/
-/target/
-/.idea/libraries/
-/.idea/workspace.xml
+bin/
+target/
+.idea/
+.settings
+.classpath
+.factorypath
+.project
