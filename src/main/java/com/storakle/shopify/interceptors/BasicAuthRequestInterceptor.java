@@ -4,7 +4,7 @@ import static feign.Util.checkNotNull;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import jodd.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 public class BasicAuthRequestInterceptor implements RequestInterceptor {
   private final String apiKey;
@@ -22,7 +22,8 @@ public class BasicAuthRequestInterceptor implements RequestInterceptor {
     checkNotNull(password, "password");
     this.apiKey = apiKey;
     this.password = password;
-    this.token = Base64.encodeToString(apiKey + ":" + password);
+    String s = apiKey + ":" + password;
+    this.token = Base64.encodeBase64String(s.getBytes());
   }
 
   @Override
