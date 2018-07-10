@@ -18,26 +18,14 @@ public class Order {
   @JsonProperty(value = JsonConstants.NAME)
   private String name;
 
-  @JsonProperty(value = JsonConstants.TOTAL_PRICE)
-  private BigDecimal totalPrice;
-
-  @JsonProperty(value = JsonConstants.DISCOUNT)
-  private BigDecimal discount;
-
   @JsonProperty(value = JsonConstants.FINANCIAL_STATUS)
   private FinancialStatus financialStatus;
 
-  @JsonProperty(value = JsonConstants.CUSTOMER)
-  private Customer customer;
-
-  @JsonProperty(value = JsonConstants.BILLING_ADDRESS)
-  private Address billingAddress;
+  @JsonProperty(value = JsonConstants.FULLFILLMENT_STATUS)
+  private FullfillmentStatus fullfillmentStatus;
 
   @JsonProperty(value = JsonConstants.SHIPPING_ADDRESS)
   private Address shippingAddress;
-
-  @JsonProperty(value = JsonConstants.LINE_ITEMS)
-  private List<LineItem> lineItems;
 
   @JsonProperty(value = JsonConstants.CREATED_AT)
   @JsonDeserialize(using = FlexDateDeserializer.class)
