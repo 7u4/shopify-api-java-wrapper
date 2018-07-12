@@ -6,6 +6,8 @@ import feign.Feign;
 import feign.RequestInterceptor;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
+import feign.okhttp.OkHttpClient;
+
 import java.util.ArrayList;
 
 public class ShopifyApiFactory {
@@ -15,6 +17,7 @@ public class ShopifyApiFactory {
     requestInterceptors.add(new ContentTypeRequestInterceptor());
 
     return Feign.builder()
+        .client(new OkHttpClient())
         .decoder(new JacksonDecoder())
         .encoder(new JacksonEncoder())
         .requestInterceptors(requestInterceptors)

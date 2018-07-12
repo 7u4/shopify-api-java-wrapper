@@ -1,17 +1,6 @@
 package com.storakle.shopify;
 
-import com.storakle.shopify.domain.CollectList;
-import com.storakle.shopify.domain.Count;
-import com.storakle.shopify.domain.CustomCollectionList;
-import com.storakle.shopify.domain.CustomerList;
-import com.storakle.shopify.domain.OrderList;
-import com.storakle.shopify.domain.ProductList;
-import com.storakle.shopify.domain.RecurringApplicationChargeRequest;
-import com.storakle.shopify.domain.RecurringApplicationChargeResponse;
-import com.storakle.shopify.domain.SmartCollectionList;
-import com.storakle.shopify.domain.TransactionList;
-import com.storakle.shopify.domain.Webhook;
-import com.storakle.shopify.domain.WebhookList;
+import com.storakle.shopify.domain.*;
 import feign.Param;
 import feign.RequestLine;
 
@@ -70,12 +59,14 @@ public interface ShopifyApiClient {
   Count getCollectsCount();
 
   @RequestLine(
-      "GET /admin/orders.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}&status=any")
+      "GET /admin/orders.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}&status={status}&fulfillment_status={fullfillmentStatus}")
   OrderList getOrders(
       @Param("limit") Integer limit,
       @Param("since-id") String sinceId,
       @Param("page") Integer page,
-      @Param("fields") String fields);
+      @Param("fields") String fields,
+      @Param("status") OrderStatusFilter status,
+      @Param("fullfillmentStatus") FullfillmentStatusFilter fullfillmentStatus);
 
   @RequestLine("GET /admin/orders/count.json?status=any")
   Count getOrdersCount();
