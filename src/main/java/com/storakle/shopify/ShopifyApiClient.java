@@ -59,13 +59,15 @@ public interface ShopifyApiClient {
   Count getCollectsCount();
 
   @RequestLine(
-      "GET /admin/orders.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}&status={status}&fulfillment_status={fullfillmentStatus}")
+      "GET /admin/orders.json?limit={limit}&since_id={since-id}&created_at_min={createdAtMin}&page={page}&fields={fields}&status={status}&financial_status={financialStatus}&fulfillment_status={fullfillmentStatus}")
   OrderList getOrders(
       @Param("limit") Integer limit,
       @Param("since-id") String sinceId,
+      @Param("createdAtMin") String createdAtMin,
       @Param("page") Integer page,
       @Param("fields") String fields,
       @Param("status") OrderStatusFilter status,
+      @Param("financialStatus") FinancialStatus financialStatus,
       @Param("fullfillmentStatus") FullfillmentStatusFilter fullfillmentStatus);
 
   @RequestLine("GET /admin/orders/count.json?status=any")
