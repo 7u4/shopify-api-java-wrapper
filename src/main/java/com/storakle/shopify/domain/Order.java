@@ -18,6 +18,12 @@ public class Order {
   @JsonProperty(value = JsonConstants.NAME)
   private String name;
 
+  @JsonProperty(value = JsonConstants.NUMBER)
+  private long number;
+
+  @JsonProperty(value = JsonConstants.ORDER_NUMBER)
+  private long orderNumber;
+
   @JsonProperty(value = JsonConstants.FINANCIAL_STATUS)
   private FinancialStatus financialStatus;
 

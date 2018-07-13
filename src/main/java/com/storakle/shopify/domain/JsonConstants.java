@@ -62,6 +62,8 @@ public final class JsonConstants {
   public static final String FULLFILLMENT_STATUS = "fulfillment_status";
   public static final String VARIANT_TITLE = "variant_title";
   public static final String NAME = "name";
+  public static final String NUMBER = "number";
+  public static final String ORDER_NUMBER = "order_number";
   public static final String QUANTITY = "quantity";
   public static final String SHIPPING_ADDRESS = "shipping_address";
 
