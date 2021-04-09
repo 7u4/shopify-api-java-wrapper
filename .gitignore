@@ -19,3 +19,4 @@ target/
 .classpath
 .factorypath
 .project
+/shopify-api-java-wrapper.iml
